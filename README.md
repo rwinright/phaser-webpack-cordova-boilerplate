@@ -14,7 +14,7 @@ Installation steps to set this template up and running.
 ### Install
 #### Clone repo (and specify folder name)
 ```
-git clone https://github.com/PeeJeeDR/phaser-3-webpack-cordova.git PROJECT_NAME
+git clone https://github.com/rwinright/phaser-webpack-cordova-boilerplate.git PROJECT_NAME
 ```
 
 #### Navigate in folder
@@ -100,3 +100,5 @@ cordova build android
 ```
 cordova build --release android
 ```
+
+## (Thank you Mr. PeeJeeDR for the basis of this!!)
