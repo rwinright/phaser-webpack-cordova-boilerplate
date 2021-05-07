@@ -14,6 +14,7 @@ export default class extends Physics.Arcade.Sprite {
 
     this.direction = 0;
     this.facingRight = false;
+    this.keys = scene.input.keyboard.addKeys("W, S, A, D, P, E, Q, SPACE");
   }
 
   create() {
@@ -50,14 +51,14 @@ export default class extends Physics.Arcade.Sprite {
     Helpers().generateAnimations(playerAnims, this.scene, this.texture.key);
   }
 
-  update(keys) {
+  update() {
     this.setSize(16, 40).setOrigin(1).setScale(2).setOffset(8, 24)
 
-    this.direction = keys.D.isDown - keys.A.isDown;
+    this.direction = this.keys.D.isDown - this.keys.A.isDown;
     this.setVelocityX(this.direction * 100);
     //Set facing
-    if (keys.A.isDown) this.facingRight = false;
-    if (keys.D.isDown) this.facingRight = true;
+    if (this.keys.A.isDown) this.facingRight = false;
+    if (this.keys.D.isDown) this.facingRight = true;
 
     this.flipX = !this.facingRight;
 
@@ -71,7 +72,7 @@ export default class extends Physics.Arcade.Sprite {
 
     //The last part of this should be changed to this.body.touching.down...
     //However, that doesn't work on collideWorldBounds
-    if (keys.SPACE.isDown && this.body.velocity.y === 0) {
+    if (this.keys.SPACE.isDown && this.body.velocity.y === 0) {
       this.setVelocityY(-100);
     }
     if(this.body.velocity.y < 0){
